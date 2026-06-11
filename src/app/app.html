@@ -1,0 +1,80 @@
+<!-- Header & Navigation -->
+<header class="main-header">
+  <div class="container header-container">
+      <a routerLink="/home" class="logo" (click)="closeMobileMenu()">
+          <div class="logo-icon"><i class="fa-solid fa-wheat-awn"></i></div>
+          <div class="logo-text">
+              <span class="brand-name">pro Agrar</span>
+              <span class="brand-sub">Versorgungswerk e.V.</span>
+          </div>
+      </a>
+      <button class="mobile-nav-toggle" aria-label="Menü öffnen" (click)="toggleMobileMenu()">
+          <i class="fa-solid" [ngClass]="mobileMenuOpen ? 'fa-xmark' : 'fa-bars'"></i>
+      </button>
+      <nav class="main-nav" [ngClass]="{'mobile-active': mobileMenuOpen}">
+          <ul>
+              <li><a routerLink="/home" routerLinkActive="router-link-active" class="nav-link" (click)="closeMobileMenu()">Startseite</a></li>
+              <li><a routerLink="/mitgliedschaft" routerLinkActive="router-link-active" class="nav-link" (click)="closeMobileMenu()">Mitgliedschaft</a></li>
+              <li><a routerLink="/konzepte" routerLinkActive="router-link-active" class="nav-link" (click)="closeMobileMenu()">Konzepte</a></li>
+              <li><a routerLink="/vorsorge" routerLinkActive="router-link-active" class="nav-link" (click)="closeMobileMenu()">Vorsorge & Partner</a></li>
+              <li><a routerLink="/kontakt" routerLinkActive="router-link-active" class="nav-link" (click)="closeMobileMenu()">Kontakt & Service</a></li>
+          </ul>
+      </nav>
+      <div class="header-cta">
+          <a routerLink="/mitgliedschaft" class="btn btn-accent btn-sm">Mitglied werden</a>
+      </div>
+  </div>
+</header>
+
+<!-- Dynamic Page Content -->
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<!-- Footer Area -->
+<footer class="main-footer">
+  <div class="container footer-grid">
+      <div class="footer-brand-info">
+          <div class="logo">
+              <div class="logo-icon"><i class="fa-solid fa-wheat-awn"></i></div>
+              <span class="brand-name">pro Agrar e.V.</span>
+          </div>
+          <p class="mt-2">Das Versorgungswerk pro Agrar e.V. ist eine unabhängige Vorsorgeeinrichtung für die grüne Branche. Wir bündeln Risiken und sichern günstige Gruppenkonditionen für unsere Mitglieder.</p>
+      </div>
+      <div>
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+              <li><a routerLink="/home">Startseite</a></li>
+              <li><a routerLink="/mitgliedschaft">Mitgliedschaft</a></li>
+              <li><a routerLink="/konzepte">Konzepte</a></li>
+              <li><a routerLink="/vorsorge">Vorsorge & Partner</a></li>
+              <li><a routerLink="/kontakt">Kontakt & Service</a></li>
+          </ul>
+      </div>
+      <div>
+          <h4>Wichtige Kontakte</h4>
+          <ul class="footer-contacts">
+              <li><i class="fa-solid fa-phone"></i> Allgemein: <a href="tel:+4916099537198">0160/99537198</a></li>
+              <li><i class="fa-solid fa-phone"></i> Mitglieder: <a href="tel:+494874900564">04874/900564</a></li>
+              <li><i class="fa-solid fa-phone"></i> InReha: <a href="tel:+494072004089">040/72004089</a></li>
+              <li><i class="fa-solid fa-envelope"></i> <a href="mailto:info@pro-agrar-versorgungswerk.de">info@pro-agrar-versorgungswerk.de</a></li>
+          </ul>
+      </div>
+  </div>
+  <div class="footer-bottom">
+      <div class="container footer-bottom-container">
+          <p>&copy; 2026 Versorgungswerk pro Agrar e.V. Alle Rechte vorbehalten.</p>
+          <div class="footer-legal-links">
+              <a (click)="openLegal('impressum')">Impressum</a>
+              <a (click)="openLegal('datenschutz')">Datenschutzerklärung</a>
+          </div>
+      </div>
+  </div>
+</footer>
+
+<!-- Legal Overlay Modals -->
+<app-legal-modal 
+  [isOpen]="isLegalModalOpen" 
+  [type]="legalModalType" 
+  (close)="closeLegal()">
+</app-legal-modal>

@@ -1,0 +1,121 @@
+<div class="page-wrapper">
+  <div class="container">
+      <div class="section-title-wrapper text-center">
+          <span class="section-subtitle">Sondertarife</span>
+          <h2>Unsere Versicherungskonzepte für Landwirte</h2>
+          <p class="section-intro">Durch die enge Kooperation mit renommierten Versicherungsgesellschaften bieten wir bedarfsgerechte Rahmenverträge an. Hier sind die wichtigsten Bausteine:</p>
+      </div>
+
+      <!-- Accordion container for Concepts -->
+      <div class="accordion-container">
+          
+          <!-- Concept 1: Betriebshaftpflicht -->
+          <div class="accordion-item" [ngClass]="{'active': activeItem === 'betriebshaftpflicht'}">
+              <button class="accordion-header" (click)="toggleItem('betriebshaftpflicht')">
+                  <span class="accordion-title"><i class="fa-solid fa-shield-dog"></i> Betriebshaftpflicht & Umweltschadensversicherung</span>
+                  <span class="accordion-icon"><i class="fa-solid fa-chevron-down"></i></span>
+              </button>
+              <div class="accordion-content">
+                  <div class="accordion-inner-grid">
+                      <div>
+                          <p>Die Betriebshaftpflicht ist die wichtigste Existenzabsicherung für jeden landwirtschaftlichen Betrieb. Sie schützt Sie, Ihre Familie und Ihre Angestellten vor Schadensersatzansprüchen Dritter bei Personen-, Sach- und Vermögensschäden.</p>
+                          <h5 class="mt-3">Besondere Highlights unserer Rahmenverträge:</h5>
+                          <ul class="check-list-sm">
+                              <li><i class="fa-solid fa-check"></i> Integrierte <strong>Umweltschadens- und Umwelthaftpflichtversicherung</strong></li>
+                              <li><i class="fa-solid fa-check"></i> Mitversicherung von Produkthaftung (z.B. bei Direktvermarktung, Milchverkauf)</li>
+                              <li><i class="fa-solid fa-check"></i> Absicherung von Schäden durch entlaufenes Vieh und Flurschäden</li>
+                              <li><i class="fa-solid fa-check"></i> Hohe Deckungssummen (bis 10 Mio. € pauschal) zu Gruppenkonditionen</li>
+                          </ul>
+                      </div>
+                      <div class="concept-action-box">
+                          <span class="savings-badge">Bis zu 30% Ersparnis</span>
+                          <p>Durch Bündelrabatte erhalten unsere Mitglieder erstklassigen Schutz zu extrem günstigen Beiträgen.</p>
+                          <button class="btn btn-primary btn-sm btn-block" (click)="requestConcept('Anfrage Betriebshaftpflicht')">Angebot anfordern</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Concept 2: Rechtsschutz -->
+          <div class="accordion-item" [ngClass]="{'active': activeItem === 'rechtsschutz'}">
+              <button class="accordion-header" (click)="toggleItem('rechtsschutz')">
+                  <span class="accordion-title"><i class="fa-solid fa-gavel"></i> Landwirtschafts- & Verkehrs-Rechtsschutz</span>
+                  <span class="accordion-icon"><i class="fa-solid fa-chevron-down"></i></span>
+              </button>
+              <div class="accordion-content">
+                  <div class="accordion-inner-grid">
+                      <div>
+                          <p>Streitigkeiten mit Pächtern, Behörden (z.B. bezüglich Subventionen oder Auflagen), Nachbarn oder Lieferanten können schnell immense Kosten verursachen. Unser Rechtsschutz deckt das finanzielle Risiko von Gerichts- und Anwaltskosten ab.</p>
+                          <h5 class="mt-3">Besondere Highlights unserer Rahmenverträge:</h5>
+                          <ul class="check-list-sm">
+                              <li><i class="fa-solid fa-check"></i> Spezial-Rechtsschutz für Landwirtschaft und Forstwirtschaft</li>
+                              <li><i class="fa-solid fa-check"></i> Integrierter <strong>Verkehrs-Rechtsschutz</strong> für alle Betriebsfahrzeuge und Schlepper</li>
+                              <li><i class="fa-solid fa-check"></i> Agrar-Subventions-Rechtsschutz für Verwaltungsverfahren vor deutschen Behörden</li>
+                              <li><i class="fa-solid fa-check"></i> Kostenfreie anwaltliche Erstberatung per Telefon</li>
+                          </ul>
+                      </div>
+                      <div class="concept-action-box">
+                          <span class="savings-badge">Exklusiver Gruppentarif</span>
+                          <p>Rechtssicherheit muss nicht teuer sein. Unsere Rahmenbedingungen schützen Sie vor unvorhersehbaren Anwaltskosten.</p>
+                          <button class="btn btn-primary btn-sm btn-block" (click)="requestConcept('Anfrage Rechtsschutz')">Angebot anfordern</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Concept 3: KFZ & Schlepper -->
+          <div class="accordion-item" [ngClass]="{'active': activeItem === 'kfz-schlepper'}">
+              <button class="accordion-header" (click)="toggleItem('kfz-schlepper')">
+                  <span class="accordion-title"><i class="fa-solid fa-tractor"></i> Kraftfahrzeug- & Schlepper-Rahmenverträge</span>
+                  <span class="accordion-icon"><i class="fa-solid fa-chevron-down"></i></span>
+              </button>
+              <div class="accordion-content">
+                  <div class="accordion-inner-grid">
+                      <div>
+                          <p>Ob Mähdrescher, Traktor, LKW oder PKW: Der Fuhrpark eines landwirtschaftlichen Betriebes stellt einen enormen Wert dar. Unsere Flottentarife und Rahmenverträge bieten optimalen Kaskoschutz zu vergünstigten Stückbeiträgen.</p>
+                          <h5 class="mt-3">Besondere Highlights unserer Rahmenverträge:</h5>
+                          <ul class="check-list-sm">
+                              <li><i class="fa-solid fa-check"></i> Attraktive <strong>Stückpreis-Modelle</strong> für Schlepper (ohne SFR-Einstufung möglich)</li>
+                              <li><i class="fa-solid fa-check"></i> Mitversicherung von Brems-, Betriebs- und Bruchschäden an Arbeitsmaschinen</li>
+                              <li><i class="fa-solid fa-check"></i> Günstiger Zweitwagentarif für private Fahrzeuge von Familienmitgliedern</li>
+                              <li><i class="fa-solid fa-check"></i> Schnelle Schadensregulierung über Direktansprechpartner</li>
+                          </ul>
+                      </div>
+                      <div class="concept-action-box">
+                          <span class="savings-badge">Flotten-Vorteil</span>
+                          <p>Sparen Sie erhebliche Summen bei der Versicherung Ihrer landwirtschaftlichen Arbeitsmaschinen und Zugmaschinen.</p>
+                          <button class="btn btn-primary btn-sm btn-block" (click)="requestConcept('Anfrage KFZ/Schlepper')">Angebot anfordern</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Concept 4: Altersvorsorge & Berufsunfähigkeit -->
+          <div class="accordion-item" [ngClass]="{'active': activeItem === 'altersvorsorge'}">
+              <button class="accordion-header" (click)="toggleItem('altersvorsorge')">
+                  <span class="accordion-title"><i class="fa-solid fa-umbrella"></i> Altersvorsorge & Berufsunfähigkeits-Schutz</span>
+                  <span class="accordion-icon"><i class="fa-solid fa-chevron-down"></i></span>
+              </button>
+              <div class="accordion-content">
+                  <div class="accordion-inner-grid">
+                      <div>
+                          <p>Die Absicherung der Arbeitskraft und das Schließen von Rentenlücken im Alter sind für Landwirte besonders anspruchsvoll. Das Versorgungswerk bietet Beratung und Verträge, die genau auf diese Situation abgestimmt sind.</p>
+                          <h5 class="mt-3">Unsere Kernleistungen zur Absicherung:</h5>
+                          <ul class="check-list-sm">
+                              <li><i class="fa-solid fa-check"></i> Spezialtarife zur <strong>Berufsunfähigkeit</strong> für körperlich tätige Landwirte (verbesserte Einstufung)</li>
+                              <li><i class="fa-solid fa-check"></i> Beratung zur Rentenversicherung & Klärung des Rentenkontos (Rentenansprüche sichern)</li>
+                              <li><i class="fa-solid fa-check"></i> Geförderte Altersvorsorgemodelle mit steuerlichen Vorteilen</li>
+                          </ul>
+                      </div>
+                      <div class="concept-action-box">
+                          <span class="savings-badge">Unabhängige Analyse</span>
+                          <p>Wir helfen Ihnen, Ihre gesetzlichen und privaten Rentenansprüche lückenlos zu klären.</p>
+                          <button class="btn btn-primary btn-sm btn-block" (click)="requestConcept('Anfrage Altersvorsorge')">Beratung anfordern</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+  </div>
+</div>

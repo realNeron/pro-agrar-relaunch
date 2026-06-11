@@ -1,0 +1,33 @@
+<div class="legal-modal" [ngClass]="{'active-modal': isOpen}" (click)="closeModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+      <button class="modal-close" aria-label="Schließen" (click)="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+      
+      <!-- Impressum Content -->
+      <div *ngIf="type === 'impressum'">
+          <h2>Impressum</h2>
+          <p><strong>Versorgungswerk pro Agrar e.V.</strong></p>
+          <p>Dorfstraße 14a<br>24819 Nienborstel</p>
+          <p>
+              Telefon: 04874-9005-64<br>
+              Fax: 04874-9005-17<br>
+              E-Mail: info@pro-agrar-versorgungswerk.de
+          </p>
+          <p><strong>Vertreten durch den Vorstand:</strong><br>Vorstand gem. § 26 BGB (wird auf Anfrage mitgeteilt / vertreten durch die Geschäftsstelle)</p>
+          <p><strong>Registereintrag:</strong><br>Eingetragen im Vereinsregister.<br>Registergericht: Amtsgericht Kiel<br>Registernummer: VR (auf Anfrage)</p>
+          <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br>Versorgungswerk pro Agrar e.V.<br>Dorfstraße 14a<br>24819 Nienborstel</p>
+      </div>
+
+      <!-- Datenschutz Content -->
+      <div *ngIf="type === 'datenschutz'">
+          <h2>Datenschutzerklärung</h2>
+          <h3>1. Datenschutz auf einen Blick</h3>
+          <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
+          <h3>2. Datenerfassung auf unserer Website</h3>
+          <p>Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.</p>
+          <p>Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie in ein Kontaktformular oder eine Beitrittserklärung eingeben.</p>
+          <p>Andere Daten werden automatisch beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs).</p>
+          <h3>3. Ihre Rechte</h3>
+          <p>Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung, Sperrung oder Löschung dieser Daten zu verlangen.</p>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,258 @@
+<div class="page-wrapper">
+  <div class="container">
+      <div class="section-title-wrapper text-center">
+          <span class="section-subtitle">Gemeinschaft</span>
+          <h2>Mitglied werden & Vorteile sichern</h2>
+          <p class="section-intro">Werden Sie Teil eines starken Netzwerks. Durch die Bündelung unserer Mitglieder können wir Tarife und Konditionen verhandeln, die für Einzelpersonen unerreichbar wären.</p>
+      </div>
+
+      <div class="grid grid-2-1">
+          <!-- Left Side: Membership Details -->
+          <div class="membership-details">
+              <h3>Wer kann Mitglied werden?</h3>
+              <ul class="check-list">
+                  <li><i class="fa-solid fa-circle-check"></i> <strong>Land- und Forstwirte</strong> sowie deren Ehepartner und Kinder</li>
+                  <li><i class="fa-solid fa-circle-check"></i> <strong>Altsitzer & Altenteiler</strong> von landwirtschaftlichen Betrieben</li>
+                  <li><i class="fa-solid fa-circle-check"></i> <strong>Verpächter</strong> von landwirtschaftlichen Nutzflächen</li>
+                  <li><i class="fa-solid fa-circle-check"></i> <strong>Maschinenring-Organisationen</strong> sowie deren Mitglieder & Mitarbeiter</li>
+                  <li><i class="fa-solid fa-circle-check"></i> <strong>Existenzgründer</strong> und Nachfolger im Agrarsektor</li>
+                  <li><i class="fa-solid fa-circle-check"></i> <strong>Mitarbeiter</strong> in landwirtschaftlichen Betrieben</li>
+              </ul>
+
+              <h3 class="mt-4">Ihre Vorteile auf einen Blick</h3>
+              <div class="mini-benefits-grid">
+                  <div class="mini-benefit">
+                      <div class="mini-icon"><i class="fa-solid fa-tags"></i></div>
+                      <div>
+                          <h4>Exklusive Rabatte</h4>
+                          <p>Hohe Nachlässe auf Lebens-, Unfall-, Kraftfahrzeug- und Rechtsschutzversicherungen.</p>
+                      </div>
+                  </div>
+                  <div class="mini-benefit">
+                      <div class="mini-icon"><i class="fa-solid fa-calculator"></i></div>
+                      <div>
+                          <h4>Rentenprüfung (gegen Entgelt)</h4>
+                          <p>Klärung Ihres Rentenkontos zur Sicherung der höchstmöglichen Altersrente.</p>
+                      </div>
+                  </div>
+                  <div class="mini-benefit">
+                      <div class="mini-icon"><i class="fa-solid fa-stethoscope"></i></div>
+                      <div>
+                          <h4>Zweitmeinungs-Service</h4>
+                          <p>Schnelle und kostenfreie Organisation einer ärztlichen Zweitmeinung bei schweren Diagnosen.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Right Side: Pricing Card -->
+          <div class="pricing-card">
+              <div class="price-header">
+                  <h4>Jahresbeitrag</h4>
+                  <div class="price-value">20 €</div>
+                  <p>Günstiger Gruppentarif</p>
+              </div>
+              <div class="price-body">
+                  <ul>
+                      <li><i class="fa-solid fa-check"></i> Voller Zugriff auf alle Rahmenverträge</li>
+                      <li><i class="fa-solid fa-check"></i> Inklusive Pflegeberatungs-Garantie</li>
+                      <li><i class="fa-solid fa-check"></i> Gültig für den gesamten Betrieb / Familie</li>
+                      <li><i class="fa-solid fa-check"></i> Keine versteckten Zusatzkosten</li>
+                  </ul>
+                  <a href="#mitglied-werden-wizard" class="btn btn-accent btn-block mt-4">Direkt online beantragen</a>
+              </div>
+          </div>
+      </div>
+
+      <!-- Interactive Wizard Section -->
+      <div id="mitglied-werden-wizard" class="wizard-container mt-5">
+          <div class="wizard-header">
+              <h3>Beitrittserklärung Online</h3>
+              <p>In nur 3 Schritten dem Versorgungswerk beitreten</p>
+              
+              <!-- Progress Indicator -->
+              <div class="wizard-progress">
+                  <div class="progress-line" [style.width.%]="(currentStep - 1) * 50"></div>
+                  
+                  <div class="step-indicator" [ngClass]="{'active-step': currentStep === 1, 'complete-step': currentStep > 1}">
+                      <span *ngIf="currentStep > 1"><i class="fa-solid fa-check"></i></span>
+                      <span *ngIf="currentStep <= 1">1</span>
+                      <span class="step-title">Persönliche Daten</span>
+                  </div>
+                  <div class="step-indicator" [ngClass]="{'active-step': currentStep === 2, 'complete-step': currentStep > 2}">
+                      <span *ngIf="currentStep > 2"><i class="fa-solid fa-check"></i></span>
+                      <span *ngIf="currentStep <= 2">2</span>
+                      <span class="step-title">Betrieb & Angaben</span>
+                  </div>
+                  <div class="step-indicator" [ngClass]="{'active-step': currentStep === 3}">
+                      <span>3</span>
+                      <span class="step-title">Bestätigung</span>
+                  </div>
+              </div>
+          </div>
+
+          <form [formGroup]="membershipForm" (ngSubmit)="onSubmit()" *ngIf="!isSubmitted" class="wizard-form">
+              
+              <!-- Step 1: Personal Data -->
+              <div class="wizard-step" [ngClass]="{'active-step-pane': currentStep === 1}">
+                  <div class="form-grid">
+                      <div class="form-group">
+                          <label for="salutation">Anrede *</label>
+                          <select id="salutation" formControlName="salutation" required>
+                              <option value="">Bitte wählen...</option>
+                              <option value="herr">Herr</option>
+                              <option value="frau">Frau</option>
+                              <option value="firma">Firma / Betrieb</option>
+                          </select>
+                      </div>
+                      <div class="form-group">
+                          <label for="fullname">Vor- und Nachname / Ansprechpartner *</label>
+                          <input type="text" id="fullname" formControlName="fullname" placeholder="Max Mustermann" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="birthdate">Geburtsdatum *</label>
+                          <input type="date" id="birthdate" formControlName="birthdate" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="email">E-Mail-Adresse *</label>
+                          <input type="email" id="email" formControlName="email" placeholder="max@mustermann.de" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="phone">Telefonnummer *</label>
+                          <input type="tel" id="phone" formControlName="phone" placeholder="0170 1234567" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="street">Straße und Hausnummer *</label>
+                          <input type="text" id="street" formControlName="street" placeholder="Dorfstraße 1" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="zip">PLZ *</label>
+                          <input type="text" id="zip" formControlName="zip" placeholder="24819" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="city">Ort *</label>
+                          <input type="text" id="city" formControlName="city" placeholder="Nienborstel" required>
+                      </div>
+                  </div>
+                  
+                  <div *ngIf="showAlert && currentStep === 1" class="alert alert-danger">
+                      {{ alertMessage }}
+                  </div>
+
+                  <div class="wizard-actions">
+                      <span>* Pflichtfelder</span>
+                      <button type="button" class="btn btn-primary" (click)="nextStep()">Weiter zu Schritt 2 <i class="fa-solid fa-arrow-right"></i></button>
+                  </div>
+              </div>
+
+              <!-- Step 2: Farm & Membership Details -->
+              <div class="wizard-step" [ngClass]="{'active-step-pane': currentStep === 2}">
+                  <div class="form-grid">
+                      <div class="form-group">
+                          <label for="occupation-type">Ihre Tätigkeit im Agrarsektor *</label>
+                          <select id="occupation-type" formControlName="occupation" required>
+                              <option value="">Bitte wählen...</option>
+                              <option value="hauptberuf-landwirt">Selbstständiger Landwirt (Hauptberuf)</option>
+                              <option value="nebenberuf-landwirt">Selbstständiger Landwirt (Nebenberuf)</option>
+                              <option value="altsitzer">Altsitzer / Altenteiler</option>
+                              <option value="verpaechter">Verpächter</option>
+                              <option value="maschinenring-mitglied">Mitglied im Maschinenring</option>
+                              <option value="angestellter">Mitarbeiter im Agrarbetrieb</option>
+                          </select>
+                      </div>
+                      <div class="form-group">
+                          <label for="farm-size">Betriebsgröße (optional)</label>
+                          <select id="farm-size" formControlName="farmSize">
+                              <option value="">Keine Angabe</option>
+                              <option value="under-50">unter 50 Hektar</option>
+                              <option value="50-100">50 - 100 Hektar</option>
+                              <option value="over-100">über 100 Hektar</option>
+                          </select>
+                      </div>
+                      <div class="form-group">
+                          <label for="partner-name">Mitglied im Maschinenring? (Name des MR)</label>
+                          <input type="text" id="partner-name" formControlName="partnerName" placeholder="z.B. MR Mittelholstein">
+                      </div>
+                      <div class="form-group">
+                          <label>An welchen Konzepten haben Sie Interesse?</label>
+                          <div class="checkbox-group">
+                              <label class="checkbox-label" *ngFor="let item of interestsList">
+                                  <input type="checkbox" (change)="toggleInterest(item.key, $event)">
+                                  {{ item.label }}
+                              </label>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div *ngIf="showAlert && currentStep === 2" class="alert alert-danger">
+                      {{ alertMessage }}
+                  </div>
+
+                  <div class="wizard-actions">
+                      <button type="button" class="btn btn-secondary" (click)="prevStep()"><i class="fa-solid fa-arrow-left"></i> Zurück</button>
+                      <button type="button" class="btn btn-primary" (click)="nextStep()">Weiter zur Übersicht <i class="fa-solid fa-arrow-right"></i></button>
+                  </div>
+              </div>
+
+              <!-- Step 3: Confirmation & Summary -->
+              <div class="wizard-step" [ngClass]="{'active-step-pane': currentStep === 3}">
+                  <div class="summary-box">
+                      <h4>Zusammenfassung Ihrer Angaben:</h4>
+                      <div class="summary-grid">
+                          <div class="summary-label">Name:</div>
+                          <div class="summary-value">{{ getSalutationLabel() }} {{ membershipForm.get('fullname')?.value }}</div>
+                          
+                          <div class="summary-label">Geburtsdatum:</div>
+                          <div class="summary-value">{{ formatDate(membershipForm.get('birthdate')?.value) }}</div>
+                          
+                          <div class="summary-label">Kontakt:</div>
+                          <div class="summary-value">E-Mail: {{ membershipForm.get('email')?.value }}<br>Tel: {{ membershipForm.get('phone')?.value }}</div>
+                          
+                          <div class="summary-label">Anschrift:</div>
+                          <div class="summary-value">{{ membershipForm.get('street')?.value }}, {{ membershipForm.get('zip')?.value }} {{ membershipForm.get('city')?.value }}</div>
+                          
+                          <div class="summary-label">Tätigkeit:</div>
+                          <div class="summary-value">{{ getOccupationLabel() }}</div>
+                          
+                          <div class="summary-label">Partner / MR:</div>
+                          <div class="summary-value">{{ membershipForm.get('partnerName')?.value || 'Nein / Keine Angabe' }}</div>
+                          
+                          <div class="summary-label">Interessen:</div>
+                          <div class="summary-value">{{ selectedInterests.length > 0 ? selectedInterests.join(', ') : 'Keine spezifischen Interessen gewählt' }}</div>
+                      </div>
+                  </div>
+
+                  <div class="form-group mt-4">
+                      <div class="checkbox-group">
+                          <label class="checkbox-label">
+                              <input type="checkbox" formControlName="termsAgree" required>
+                              Ich beantrage hiermit die Mitgliedschaft im Versorgungswerk pro Agrar e.V. zum Jahresbeitrag von 20 €. *
+                          </label>
+                          <label class="checkbox-label mt-2">
+                              <input type="checkbox" formControlName="privacyAgree" required>
+                              Ich stimme zu, dass meine Daten zur Bearbeitung der Mitgliedschaft erhoben und verarbeitet werden. Die Datenschutzerklärung habe ich zur Kenntnis genommen. *
+                          </label>
+                      </div>
+                  </div>
+
+                  <div *ngIf="showAlert && currentStep === 3" class="alert alert-danger">
+                      {{ alertMessage }}
+                  </div>
+
+                  <div class="wizard-actions">
+                      <button type="button" class="btn btn-secondary" (click)="prevStep()"><i class="fa-solid fa-arrow-left"></i> Zurück</button>
+                      <button type="submit" class="btn btn-accent">Mitgliedschaft absenden <i class="fa-solid fa-paper-plane"></i></button>
+                  </div>
+              </div>
+          </form>
+
+          <!-- Success Message -->
+          <div *ngIf="isSubmitted" class="wizard-success-pane">
+              <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+              <h3>Vielen Dank für Ihre Anmeldung!</h3>
+              <p>Ihre Beitrittserklärung wurde erfolgreich übermittelt. Wir senden Ihnen in Kürze Ihre Mitgliedsunterlagen sowie die Rechnung über den Jahresbeitrag (20 €) per E-Mail zu.</p>
+              <button type="button" class="btn btn-primary mt-3" (click)="resetWizard()">Einen weiteren Beitritt erklären</button>
+          </div>
+      </div>
+  </div>
+</div>

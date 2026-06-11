@@ -1,0 +1,102 @@
+<div class="page-wrapper">
+  <div class="container">
+      <div class="section-title-wrapper text-center">
+          <span class="section-subtitle">Kontakt</span>
+          <h2>Wir sind persönlich für Sie da</h2>
+          <p class="section-intro">Haben Sie Fragen zur Mitgliedschaft, zu den Rahmenverträgen oder benötigen Sie Beratung? Nutzen Sie unser Formular oder rufen Sie uns direkt an.</p>
+      </div>
+
+      <div class="grid grid-2">
+          <!-- Contact Info and Map placeholder -->
+          <div class="contact-info-block">
+              <h3>Versorgungswerk pro Agrar e.V.</h3>
+              <p class="address-paragraph">
+                  <i class="fa-solid fa-location-dot"></i> Dorfstraße 14a<br>
+                  24819 Nienborstel
+              </p>
+
+              <div class="contact-methods">
+                  <div class="contact-method-item">
+                      <span class="icon-holder"><i class="fa-solid fa-phone"></i></span>
+                      <div>
+                          <strong>Telefon</strong>
+                          <p><a href="tel:+494874900564">04874 / 9005-64</a></p>
+                      </div>
+                  </div>
+                  <div class="contact-method-item">
+                      <span class="icon-holder"><i class="fa-solid fa-print"></i></span>
+                      <div>
+                          <strong>Fax</strong>
+                          <p>04874 / 9005-17</p>
+                      </div>
+                  </div>
+                  <div class="contact-method-item">
+                      <span class="icon-holder"><i class="fa-solid fa-envelope"></i></span>
+                      <div>
+                          <strong>E-Mail</strong>
+                          <p><a href="mailto:info@pro-agrar-versorgungswerk.de">info@pro-agrar-versorgungswerk.de</a></p>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- GDPR compliant map load -->
+              <div class="map-placeholder mt-4">
+                  <div class="map-overlay" *ngIf="!mapLoaded">
+                      <i class="fa-solid fa-map-location-dot"></i>
+                      <h4>Google Maps laden</h4>
+                      <p>Aus Datenschutzgründen wird die Karte erst nach Ihrer Zustimmung geladen.</p>
+                      <button class="btn btn-primary btn-sm" (click)="loadMap()">Karte anzeigen</button>
+                  </div>
+                  <iframe *ngIf="mapLoaded" src="https://maps.google.com/maps?q=Dorfstrasse%2014a,%2024819%20Nienborstel&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+              </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form-block">
+              <h3>Schreiben Sie uns</h3>
+              <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="mt-3">
+                  <div class="form-group">
+                      <label for="contact-department">Ansprechpartner / Bereich *</label>
+                      <select id="contact-department" formControlName="department" required>
+                          <option value="allgemein">Allgemeine Anfragen (R. L. Rehmann)</option>
+                          <option value="mitgliedschaft">Mitgliedschaft & Verwaltung (C. Klaeschen)</option>
+                          <option value="inreha">InReha & Pflegefall-Beratung (E. Jürs)</option>
+                          <option value="versicherung">Versicherungs-Konzepte</option>
+                      </select>
+                  </div>
+                  <div class="form-group">
+                      <label for="contact-name">Name *</label>
+                      <input type="text" id="contact-name" formControlName="name" placeholder="Ihr Name" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="contact-email">E-Mail-Adresse *</label>
+                      <input type="email" id="contact-email" formControlName="email" placeholder="ihre-adresse@beispiel.de" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="contact-phone">Telefonnummer</label>
+                      <input type="tel" id="contact-phone" formControlName="phone" placeholder="0170 1234567">
+                  </div>
+                  <div class="form-group">
+                      <label for="contact-subject">Betreff *</label>
+                      <input type="text" id="contact-subject" formControlName="subject" placeholder="z.B. Beitritts-Frage" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="contact-message">Nachricht *</label>
+                      <textarea id="contact-message" formControlName="message" rows="5" placeholder="Ihre Nachricht an uns..." required></textarea>
+                  </div>
+                  <div class="form-group">
+                      <label class="checkbox-label">
+                          <input type="checkbox" formControlName="privacy" required>
+                          Ich stimme der Verarbeitung meiner Angaben gemäß der Datenschutzerklärung zu. *
+                      </label>
+                  </div>
+                  
+                  <div *ngIf="showAlert" class="alert alert-danger">Bitte füllen Sie alle erforderlichen Felder aus.</div>
+                  <div *ngIf="isSubmitted" class="alert alert-success"><i class="fa-solid fa-circle-check"></i> Ihre Nachricht wurde erfolgreich gesendet! Wir melden uns in Kürze bei Ihnen.</div>
+                  
+                  <button type="submit" class="btn btn-accent btn-block mt-3">Nachricht senden <i class="fa-solid fa-paper-plane"></i></button>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
